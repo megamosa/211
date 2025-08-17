@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="magoarab" translate="label" sortOrder="200">
+            <label>MagoArab</label>
+        </tab>
+        <section id="whatsapp_chat" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>WhatsApp Chat</label>
+            <tab>magoarab</tab>
+            <resource>MagoArab_WhatsappChat::whatsapp_chat_settings</resource>
+            
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General Settings</label>
+                
+                <field id="enabled" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable WhatsApp Chat</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Enable or disable the WhatsApp chat widget</comment>
+                </field>
+                
+                <field id="phone_number" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>WhatsApp Phone Number</label>
+                    <comment>Enter the WhatsApp phone number (with country code, e.g., +1234567890)</comment>
+                    <validate>required-entry</validate>
+                </field>
+                
+                <field id="default_message" translate="label comment" type="textarea" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Default Message</label>
+                    <comment>Default message that will be pre-filled when customers click the WhatsApp button</comment>
+                </field>
+            </group>
+            
+            <group id="display" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Display Settings</label>
+                
+                <field id="button_position" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Button Position</label>
+                    <source_model>MagoArab\WhatsappChat\Model\Config\Source\Position</source_model>
+                    <comment>Choose the position of the WhatsApp button</comment>
+                </field>
+                
+                <field id="button_layout" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Button Layout</label>
+                    <source_model>MagoArab\WhatsappChat\Model\Config\Source\Layout</source_model>
+                    <comment>Choose the layout style of the WhatsApp button</comment>
+                </field>
+                
+                <field id="show_on_mobile" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show on Mobile</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Show the WhatsApp button on mobile devices</comment>
+                </field>
+                
+                <field id="show_on_desktop" translate="label comment" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show on Desktop</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Show the WhatsApp button on desktop devices</comment>
+                </field>
+                
+                <field id="design" translate="label comment" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Chat Design</label>
+                    <source_model>MagoArab\WhatsappChat\Model\Config\Source\Design</source_model>
+                    <comment>Choose from 6 professional chat designs including Arabic Banner</comment>
+                </field>
+                
+                <field id="custom_avatar" translate="label comment" type="image" sortOrder="55" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Custom Agent Avatar</label>
+                    <comment>Upload a custom avatar image for the chat agent (recommended size: 100x100px)</comment>
+                </field>
+                
+                <field id="enable_agents" translate="label comment" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Multiple Agents</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Enable multiple chat agents with individual profiles</comment>
+                </field>
+                
+                <field id="agents_management" translate="label comment" type="note" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Agents Management</label>
+                    <comment><![CDATA[<a href="javascript:void(0)" onclick="window.open('/admin/whatsapp_chat/adminhtml_contacts', '_blank')">Manage Agents</a> - Add, edit, and manage your chat agents]]></comment>
+                </field>
+                
+                <field id="design_preview" translate="label comment" type="note" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Design Preview</label>
+                    <comment><![CDATA[<a href="javascript:void(0)" onclick="window.open('/admin/whatsapp_chat/adminhtml_preview', '_blank')">Preview All Designs</a> - See how each design looks before selecting]]></comment>
+                </field>
+            </group>
+            
+            <group id="advanced" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Advanced Settings</label>
+                
+                <field id="time_restrictions" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Time Restrictions</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Enable time-based restrictions for showing the WhatsApp button</comment>
+                </field>
+                
+                <field id="start_time" translate="label comment" type="time" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Start Time</label>
+                    <comment>Start time for showing the WhatsApp button (24-hour format)</comment>
+                    <depends>
+                        <field id="time_restrictions">1</field>
+                    </depends>
+                </field>
+                
+                <field id="end_time" translate="label comment" type="time" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>End Time</label>
+                    <comment>End time for showing the WhatsApp button (24-hour format)</comment>
+                    <depends>
+                        <field id="time_restrictions">1</field>
+                    </depends>
+                </field>
+                
+                <field id="enable_analytics" translate="label comment" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Analytics</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Track WhatsApp button clicks in Google Analytics</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

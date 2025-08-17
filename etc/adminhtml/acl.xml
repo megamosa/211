@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="MagoArab_WhatsappChat::whatsapp_chat" title="WhatsApp Chat" sortOrder="10">
+                    <resource id="MagoArab_WhatsappChat::whatsapp_chat_settings" title="Settings" sortOrder="10"/>
+                    <resource id="MagoArab_WhatsappChat::whatsapp_chat_contacts" title="Contacts" sortOrder="20"/>
+                    <resource id="MagoArab_WhatsappChat::whatsapp_chat_preview" title="Design Preview" sortOrder="30"/>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

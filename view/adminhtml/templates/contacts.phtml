@@ -1,0 +1,132 @@
+<?php
+/**
+ * Copyright © 2024 MagoArab. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var \MagoArab\WhatsappChat\Block\Adminhtml\Contacts $block */
+?>
+<div class="whatsapp-contacts-page">
+    <div class="page-header">
+        <h1><?= $block->escapeHtml(__('WhatsApp Chat Contacts')) ?></h1>
+        <div class="page-actions">
+            <a href="<?= $block->escapeUrl($block->getConfigUrl()) ?>" class="action-secondary">
+                <?= $block->escapeHtml(__('Go to Configuration')) ?>
+            </a>
+        </div>
+    </div>
+    
+    <div class="contacts-content">
+        <div class="contacts-list">
+            <?php $contacts = $block->getContacts(); ?>
+            <?php if ($contacts && $contacts->getSize() > 0): ?>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th><?= $block->escapeHtml(__('Name')) ?></th>
+                            <th><?= $block->escapeHtml(__('Phone')) ?></th>
+                            <th><?= $block->escapeHtml(__('Position')) ?></th>
+                            <th><?= $block->escapeHtml(__('Status')) ?></th>
+                            <th><?= $block->escapeHtml(__('Actions')) ?></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($contacts as $contact): ?>
+                            <tr>
+                                <td><?= $block->escapeHtml($contact->getFirstname() . ' ' . $contact->getLastname()) ?></td>
+                                <td><?= $block->escapeHtml($contact->getPhone()) ?></td>
+                                <td><?= $block->escapeHtml($contact->getLabel()) ?></td>
+                                <td>
+                                    <span class="status-<?= $contact->getStatus() ? 'active' : 'inactive' ?>">
+                                        <?= $contact->getStatus() ? __('Active') : __('Inactive') ?>
+                                    </span>
+                                </td>
+                                <td>
+                                    <a href="#" class="action-edit"><?= $block->escapeHtml(__('Edit')) ?></a>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            <?php else: ?>
+                <div class="no-contacts">
+                    <p><?= $block->escapeHtml(__('No contacts found. Please add contacts through the configuration.')) ?></p>
+                </div>
+            <?php endif; ?>
+        </div>
+    </div>
+</div>
+
+<style>
+.whatsapp-contacts-page {
+    padding: 20px;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+.page-header h1 {
+    margin: 0;
+    font-size: 24px;
+    color: #333;
+}
+
+.page-actions .action-secondary {
+    background: #007bdb;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.contacts-content {
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 20px;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.data-table th,
+.data-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.data-table th {
+    background: #f8f9fa;
+    font-weight: bold;
+}
+
+.status-active {
+    color: #28a745;
+    font-weight: bold;
+}
+
+.status-inactive {
+    color: #dc3545;
+    font-weight: bold;
+}
+
+.action-edit {
+    color: #007bdb;
+    text-decoration: none;
+}
+
+.no-contacts {
+    text-align: center;
+    padding: 40px;
+    color: #666;
+}
+</style>

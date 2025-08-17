@@ -1,0 +1,58 @@
+<?php
+/**
+ * Copyright © 2024 MagoArab. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+namespace MagoArab\WhatsappChat\Controller\Adminhtml\Contacts;
+
+use Magento\Backend\App\Action;
+use Magento\Backend\App\Action\Context;
+use Magento\Framework\View\Result\PageFactory;
+
+/**
+ * Contacts index controller
+ */
+class Index extends Action
+{
+    /**
+     * @var PageFactory
+     */
+    private $resultPageFactory;
+
+    /**
+     * @param Context $context
+     * @param PageFactory $resultPageFactory
+     */
+    public function __construct(
+        Context $context,
+        PageFactory $resultPageFactory
+    ) {
+        parent::__construct($context);
+        $this->resultPageFactory = $resultPageFactory;
+    }
+
+    /**
+     * Contacts page
+     *
+     * @return \Magento\Framework\View\Result\Page
+     */
+    public function execute()
+    {
+        $resultPage = $this->resultPageFactory->create();
+        $resultPage->setActiveMenu('MagoArab_WhatsappChat::whatsapp_chat_contacts');
+        $resultPage->getConfig()->getTitle()->prepend(__('WhatsApp Contacts'));
+        
+        return $resultPage;
+    }
+
+    /**
+     * Check admin permissions
+     *
+     * @return bool
+     */
+    protected function _isAllowed()
+    {
+        return $this->_authorization->isAllowed('MagoArab_WhatsappChat::whatsapp_chat_contacts');
+    }
+}

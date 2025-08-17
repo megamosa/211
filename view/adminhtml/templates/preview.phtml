@@ -1,0 +1,254 @@
+<?php
+/**
+ * Copyright © 2024 MagoArab. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var \MagoArab\WhatsappChat\Block\Adminhtml\Preview $block */
+?>
+<div class="whatsapp-chat-preview">
+    <div class="preview-header">
+        <h2><?= $block->escapeHtml(__('WhatsApp Chat Design Preview')) ?></h2>
+        <p><?= $block->escapeHtml(__('Preview all available chat designs. Click on any design to see how it will look on your website.')) ?></p>
+                                        <p style="color: #007bff; font-weight: bold;">✨ New: Design 6 - Arabic Banner with RTL support and emojis! ✨</p>
+        <p style="color: #28a745; font-weight: bold;">🎯 Perfect for Arabic websites with professional look! 🎯</p>
+        <p style="color: #ff6b6b; font-weight: bold;">🚀 Features: RTL text, Arabic content, emoji icons, professional styling! 🚀</p>
+    </div>
+
+    <div class="preview-grid">
+        <?php foreach ($block->getDesigns() as $designId => $design): ?>
+        <div class="preview-item" data-design="<?= $block->escapeHtmlAttr($designId) ?>">
+            <div class="preview-header">
+                <h3>
+                    <?php if ($designId === 'design-6'): ?>
+                        🆕 <?= $block->escapeHtml($design['name']) ?> 🆕
+                    <?php else: ?>
+                        <?= $block->escapeHtml($design['name']) ?>
+                    <?php endif; ?>
+                </h3>
+                <p>
+                    <?php if ($designId === 'design-6'): ?>
+                        🎨 <?= $block->escapeHtml($design['description']) ?> 🎨
+                    <?php else: ?>
+                        <?= $block->escapeHtml($design['description']) ?>
+                    <?php endif; ?>
+                </p>
+            </div>
+            
+            <div class="preview-content">
+                <!-- WhatsApp Button Preview -->
+                <div class="whatsapp-chat-widget <?= $block->escapeHtmlAttr($designId) ?>">
+                    <div class="whatsapp-button whatsapp-button--bottom-right button rounded">
+                        <div class="whatsapp-button__icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+                            </svg>
+                        </div>
+                        <div class="whatsapp-button__text">
+                            <?php if ($designId === 'design-6'): ?>
+                                لديك إستفسار؟ كلمنا واتساب
+                            <?php else: ?>
+                                WhatsApp
+                            <?php endif; ?>
+                        </div>
+                    </div>
+
+                    <!-- WhatsApp Box Preview -->
+                    <div class="whatsapp-box whatsapp-box--bottom-right active">
+                        <div class="whatsapp-box__header">
+                            <div class="whatsapp-box__title">
+                                <?php if ($designId === 'design-6'): ?>
+                                    كلمنا واتساب
+                                <?php else: ?>
+                                    <?= $block->escapeHtml(__('Chat with us')) ?>
+                                <?php endif; ?>
+                            </div>
+                            <button class="whatsapp-box__close">&times;</button>
+                        </div>
+                        
+                        <div class="whatsapp-box__content">
+                            <div class="whatsapp-contact">
+                                <div class="whatsapp-contact__avatar">
+                                    <div class="whatsapp-contact__avatar-placeholder">
+                                        <?php if ($designId === 'design-6'): ?>
+                                            فد
+                                        <?php else: ?>
+                                            أح
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+                                <div class="whatsapp-contact__info">
+                                    <div class="whatsapp-contact__name">
+                                        <?php if ($designId === 'design-6'): ?>
+                                            فريق الدعم
+                                        <?php else: ?>
+                                            أحمد محمد
+                                        <?php endif; ?>
+                                    </div>
+                                    <div class="whatsapp-contact__label">
+                                        <?php if ($designId === 'design-6'): ?>
+                                            خدمة العملاء
+                                        <?php else: ?>
+                                            الدعم الفني
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+                                <div class="whatsapp-contact__action">
+                                    <button class="whatsapp-contact__button">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="preview-actions">
+                <button class="action-secondary" onclick="selectDesign('<?= $block->escapeHtmlAttr($designId) ?>')">
+                    <?php if ($designId === 'design-6'): ?>
+                        🎯 اختر هذا التصميم
+                    <?php else: ?>
+                        <?= $block->escapeHtml(__('Select This Design')) ?>
+                    <?php endif; ?>
+                </button>
+            </div>
+        </div>
+        <?php endforeach; ?>
+    </div>
+</div>
+
+<style>
+.whatsapp-chat-preview {
+    padding: 20px;
+    background: #f8f9fa;
+    min-height: 100vh;
+}
+
+.preview-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.preview-header h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.preview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.preview-item {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.preview-item:hover {
+    transform: translateY(-5px);
+}
+
+.preview-item .preview-header {
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+    text-align: left;
+}
+
+.preview-item .preview-header h3 {
+    margin: 0 0 10px 0;
+    color: #333;
+    font-size: 18px;
+}
+
+.preview-item .preview-header p {
+    margin: 0;
+    color: #666;
+    font-size: 14px;
+}
+
+.preview-content {
+    padding: 30px;
+    background: #f8f9fa;
+    position: relative;
+    min-height: 300px;
+}
+
+.preview-actions {
+    padding: 20px;
+    text-align: center;
+    border-top: 1px solid #eee;
+}
+
+.preview-actions button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s ease;
+}
+
+.preview-actions button:hover {
+    background: #0056b3;
+}
+
+/* Override button position for preview */
+.preview-content .whatsapp-button {
+    position: relative !important;
+    bottom: auto !important;
+    right: auto !important;
+    margin: 0 auto;
+    display: flex !important;
+}
+
+/* Design 6 specific styles for preview */
+.preview-content .whatsapp-chat-widget.design-6 .whatsapp-button {
+    min-width: 280px;
+    text-align: right;
+    direction: rtl;
+}
+
+.preview-content .whatsapp-chat-widget.design-6 .whatsapp-button__text::before {
+    content: '💬';
+    margin-left: 8px;
+    font-size: 16px;
+}
+
+.preview-content .whatsapp-chat-widget.design-6 .whatsapp-button__text::after {
+    content: '📱';
+    margin-right: 8px;
+    font-size: 16px;
+}
+
+.preview-content .whatsapp-box {
+    position: relative !important;
+    bottom: auto !important;
+    right: auto !important;
+    margin: 20px auto 0;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: scale(1) !important;
+}
+</style>
+
+<script>
+function selectDesign(designId) {
+    // Redirect to system configuration with the selected design
+    var url = '<?= $block->getUrl('admin/system_config/edit/section/whatsapp_chat') ?>';
+    window.open(url, '_blank');
+    
+    // Show success message
+    alert('Design ' + designId + ' selected! Please go to System > Configuration > MagoArab > WhatsApp Chat to apply the design.');
+}
+</script>

@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="MagoArab\WhatsappChat\Api\ButtonRepositoryInterface" type="MagoArab\WhatsappChat\Model\ButtonRepository"/>
+    <preference for="MagoArab\WhatsappChat\Api\ContactRepositoryInterface" type="MagoArab\WhatsappChat\Model\ContactRepository"/>
+    <preference for="MagoArab\WhatsappChat\Api\DisplayRepositoryInterface" type="MagoArab\WhatsappChat\Model\DisplayRepository"/>
+    <preference for="MagoArab\WhatsappChat\Api\SchemeRepositoryInterface" type="MagoArab\WhatsappChat\Model\SchemeRepository"/>
+    <preference for="MagoArab\WhatsappChat\Api\BoxRepositoryInterface" type="MagoArab\WhatsappChat\Model\BoxRepository"/>
+    
+    <virtualType name="MagoArab\WhatsappChat\Model\ResourceModel\Button\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">magoarab_whatsapp_chat_button</argument>
+            <argument name="resourceModel" xsi:type="string">MagoArab\WhatsappChat\Model\ResourceModel\Button</argument>
+        </arguments>
+    </virtualType>
+    
+    <virtualType name="MagoArab\WhatsappChat\Model\ResourceModel\Contact\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">magoarab_whatsapp_chat_contacts</argument>
+            <argument name="resourceModel" xsi:type="string">MagoArab\WhatsappChat\Model\ResourceModel\Contact</argument>
+        </arguments>
+    </virtualType>
+    
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="whatsapp_chat_button_listing_data_source" xsi:type="string">MagoArab\WhatsappChat\Model\ResourceModel\Button\Grid\Collection</item>
+                <item name="whatsapp_chat_contact_listing_data_source" xsi:type="string">MagoArab\WhatsappChat\Model\ResourceModel\Contact\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

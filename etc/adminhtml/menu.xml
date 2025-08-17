@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <!-- قسم WhatsApp Chat تحت Content -->
+        <add id="MagoArab_WhatsappChat::whatsapp_chat" 
+             title="WhatsApp Chat" 
+             module="MagoArab_WhatsappChat" 
+             sortOrder="10" 
+             parent="Magento_Backend::content" 
+             resource="MagoArab_WhatsappChat::whatsapp_chat"/>
+        
+        <add id="MagoArab_WhatsappChat::whatsapp_chat_settings" 
+             title="Settings" 
+             module="MagoArab_WhatsappChat" 
+             sortOrder="10" 
+             parent="MagoArab_WhatsappChat::whatsapp_chat" 
+             action="whatsapp_chat/adminhtml_settings" 
+             resource="MagoArab_WhatsappChat::whatsapp_chat_settings"/>
+        
+        <add id="MagoArab_WhatsappChat::whatsapp_chat_contacts" 
+             title="Contacts" 
+             module="MagoArab_WhatsappChat" 
+             sortOrder="20" 
+             parent="MagoArab_WhatsappChat::whatsapp_chat" 
+             action="whatsapp_chat/adminhtml_contacts" 
+             resource="MagoArab_WhatsappChat::whatsapp_chat_contacts"/>
+        
+        <add id="MagoArab_WhatsappChat::whatsapp_chat_preview" 
+             title="Design Preview" 
+             module="MagoArab_WhatsappChat" 
+             sortOrder="30" 
+             parent="MagoArab_WhatsappChat::whatsapp_chat" 
+             action="whatsapp_chat/adminhtml_preview" 
+             resource="MagoArab_WhatsappChat::whatsapp_chat_settings"/>
+    </menu>
+</config>

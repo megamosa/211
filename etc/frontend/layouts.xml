@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<page_layouts xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/PageLayout/etc/layouts.xsd">
+    <layout id="1column">
+        <update handle="whatsapp_chat_widget"/>
+    </layout>
+    <layout id="2columns-left">
+        <update handle="whatsapp_chat_widget"/>
+    </layout>
+    <layout id="2columns-right">
+        <update handle="whatsapp_chat_widget"/>
+    </layout>
+    <layout id="3columns">
+        <update handle="whatsapp_chat_widget"/>
+    </layout>
+    <layout id="empty">
+        <update handle="whatsapp_chat_widget"/>
+    </layout>
+</page_layouts>

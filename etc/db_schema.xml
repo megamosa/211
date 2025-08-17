@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="magoarab_whatsapp_chat_button" resource="default" engine="innodb" comment="WhatsApp Chat Button Settings">
+        <column xsi:type="int" name="id" unsigned="true" nullable="false" identity="true" comment="ID"/>
+        <column xsi:type="varchar" name="layout" nullable="false" length="50" default="button" comment="Button Layout"/>
+        <column xsi:type="varchar" name="box" nullable="false" length="10" default="no" comment="Show Box"/>
+        <column xsi:type="varchar" name="position" nullable="false" length="50" default="bottom-right" comment="Button Position"/>
+        <column xsi:type="text" name="text" nullable="true" comment="Button Text"/>
+        <column xsi:type="text" name="message" nullable="true" comment="Default Message"/>
+        <column xsi:type="varchar" name="icon" nullable="false" length="100" default="whatsapp-icon" comment="Button Icon"/>
+        <column xsi:type="varchar" name="type" nullable="false" length="20" default="phone" comment="Contact Type"/>
+        <column xsi:type="varchar" name="phone" nullable="false" length="50" comment="Phone Number"/>
+        <column xsi:type="varchar" name="group" nullable="true" length="255" comment="Group Link"/>
+        <column xsi:type="varchar" name="developer" nullable="false" length="10" default="no" comment="Developer Mode"/>
+        <column xsi:type="varchar" name="rounded" nullable="false" length="10" default="yes" comment="Rounded Button"/>
+        <column xsi:type="varchar" name="timefrom" nullable="false" length="10" default="00:00" comment="Time From"/>
+        <column xsi:type="varchar" name="timeto" nullable="false" length="10" default="00:00" comment="Time To"/>
+        <column xsi:type="text" name="timedays" nullable="true" comment="Time Days"/>
+        <column xsi:type="varchar" name="timezone" nullable="false" length="100" comment="Timezone"/>
+        <column xsi:type="varchar" name="visibility" nullable="false" length="50" default="readonly" comment="Visibility"/>
+        <column xsi:type="varchar" name="animation_name" nullable="true" length="100" comment="Animation Name"/>
+        <column xsi:type="varchar" name="animation_delay" nullable="true" length="10" comment="Animation Delay"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" comment="Created At"/>
+        <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP" comment="Updated At"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+
+    <table name="magoarab_whatsapp_chat_contacts" resource="default" engine="innodb" comment="WhatsApp Chat Contacts">
+        <column xsi:type="int" name="id" unsigned="true" nullable="false" identity="true" comment="ID"/>
+        <column xsi:type="int" name="order" unsigned="true" nullable="false" default="1" comment="Sort Order"/>
+        <column xsi:type="smallint" name="active" unsigned="true" nullable="false" default="1" comment="Active"/>
+        <column xsi:type="smallint" name="chat" unsigned="true" nullable="false" default="1" comment="Chat Enabled"/>
+        <column xsi:type="varchar" name="avatar" nullable="true" length="255" comment="Avatar URL"/>
+        <column xsi:type="varchar" name="type" nullable="false" length="20" default="phone" comment="Contact Type"/>
+        <column xsi:type="varchar" name="phone" nullable="false" length="50" comment="Phone Number"/>
+        <column xsi:type="varchar" name="group" nullable="true" length="255" comment="Group Link"/>
+        <column xsi:type="varchar" name="firstname" nullable="false" length="100" default="John" comment="First Name"/>
+        <column xsi:type="varchar" name="lastname" nullable="false" length="100" default="Doe" comment="Last Name"/>
+        <column xsi:type="varchar" name="label" nullable="true" length="100" comment="Label"/>
+        <column xsi:type="text" name="message" nullable="true" comment="Default Message"/>
+        <column xsi:type="varchar" name="timefrom" nullable="false" length="10" default="00:00" comment="Time From"/>
+        <column xsi:type="varchar" name="timeto" nullable="false" length="10" default="00:00" comment="Time To"/>
+        <column xsi:type="varchar" name="timezone" nullable="false" length="100" comment="Timezone"/>
+        <column xsi:type="varchar" name="visibility" nullable="false" length="50" default="readonly" comment="Visibility"/>
+        <column xsi:type="text" name="timedays" nullable="true" comment="Time Days"/>
+        <column xsi:type="text" name="display" nullable="true" comment="Display Settings"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" comment="Created At"/>
+        <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP" comment="Updated At"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+
+    <table name="magoarab_whatsapp_chat_display" resource="default" engine="innodb" comment="WhatsApp Chat Display Settings">
+        <column xsi:type="int" name="id" unsigned="true" nullable="false" identity="true" comment="ID"/>
+        <column xsi:type="text" name="devices" nullable="true" comment="Devices"/>
+        <column xsi:type="text" name="entries" nullable="true" comment="Entries"/>
+        <column xsi:type="text" name="taxonomies" nullable="true" comment="Taxonomies"/>
+        <column xsi:type="text" name="target" nullable="true" comment="Target"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" comment="Created At"/>
+        <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP" comment="Updated At"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+
+    <table name="magoarab_whatsapp_chat_scheme" resource="default" engine="innodb" comment="WhatsApp Chat Color Scheme">
+        <column xsi:type="int" name="id" unsigned="true" nullable="false" identity="true" comment="ID"/>
+        <column xsi:type="varchar" name="color" nullable="false" length="20" default="#25D366" comment="Primary Color"/>
+        <column xsi:type="varchar" name="color_hover" nullable="false" length="20" default="#128C7E" comment="Hover Color"/>
+        <column xsi:type="varchar" name="color_text" nullable="false" length="20" default="#FFFFFF" comment="Text Color"/>
+        <column xsi:type="varchar" name="color_text_hover" nullable="false" length="20" default="#FFFFFF" comment="Text Hover Color"/>
+        <column xsi:type="varchar" name="color_box" nullable="false" length="20" default="#FFFFFF" comment="Box Color"/>
+        <column xsi:type="varchar" name="color_box_text" nullable="false" length="20" default="#000000" comment="Box Text Color"/>
+        <column xsi:type="varchar" name="color_box_hover" nullable="false" length="20" default="#F5F5F5" comment="Box Hover Color"/>
+        <column xsi:type="varchar" name="color_box_text_hover" nullable="false" length="20" default="#000000" comment="Box Text Hover Color"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" comment="Created At"/>
+        <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP" comment="Updated At"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+
+    <table name="magoarab_whatsapp_chat_box" resource="default" engine="innodb" comment="WhatsApp Chat Box Settings">
+        <column xsi:type="int" name="id" unsigned="true" nullable="false" identity="true" comment="ID"/>
+        <column xsi:type="text" name="header" nullable="true" comment="Box Header"/>
+        <column xsi:type="text" name="footer" nullable="true" comment="Box Footer"/>
+        <column xsi:type="varchar" name="name" nullable="true" length="100" comment="Contact Name"/>
+        <column xsi:type="varchar" name="work" nullable="true" length="100" comment="Work Title"/>
+        <column xsi:type="varchar" name="avatar" nullable="true" length="255" comment="Avatar URL"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" comment="Created At"/>
+        <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP" comment="Updated At"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+</schema>
